@@ -120,7 +120,7 @@ function run_privacy_experiment(p ::Distribution,            # Target distributi
         end
 
         # Compute theta parameter
-        θ = (eps_ / (4*log(2) + eps_)) ^ i
+        θ = (eps_ / (4 + eps_)) ^ i
 
         # Train the classifier c_i
         Flux.train!(obj, epochs(batches((train_p_samps, train_q_samps), batch_size), num_epochs), opt, cb = Flux.throttle(evalcb, 2))
